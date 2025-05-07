@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function ferPeticio(){
+            const options = {
+			method: 'GET',
+			headers: {
+			  accept: 'application/json',
+			}
+		  };
+		  
+          // per evitar fer masses peticions, es fa una sola i es guarda en una variable 
+		  peticio = await fetch(`https://api.themoviedb.org/3/search/movie?query=matrix&include_adult=ture&language=en-US&page=1`, options);
+          objecteApi = await peticio.json();
+          return objecteApi;
+        }
+
+        ferPeticio().then(objecteApi => {
+            document.write(objecteApi);
+            console.log(objecteApi
+
+            );
+        });
+
+    </script>
+</body>
+</html>
