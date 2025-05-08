@@ -12,20 +12,19 @@
 			method: 'GET',
 			headers: {
 			  accept: 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMGYzYjMzZTVmOTFiYjE4MmEzMWVhOWNjM2Q3ZDcxNCIsIm5iZiI6MTc0NjExMzMzMy4xMDQsInN1YiI6IjY4MTM5MzM1N2VhYjE3Mzk2ZWIxZmQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cWGNkn5uWCH-R9Tj4ZcE9QDhR1rmYf-jSgcRjlHAzPE'
 			}
 		  };
 		  
           // per evitar fer masses peticions, es fa una sola i es guarda en una variable 
-		  peticio = await fetch(`https://api.themoviedb.org/3/search/movie?query=matrix&include_adult=ture&language=en-US&page=1`, options);
+		  peticio = await fetch(`https://api.themoviedb.org/3/movie/1217455`, options);
           objecteApi = await peticio.json();
           return objecteApi;
         }
 
         ferPeticio().then(objecteApi => {
             document.write(objecteApi);
-            console.log(objecteApi
-
-            );
+            console.log(objecteApi.genres[1].name);
         });
 
     </script>
